@@ -1,0 +1,12 @@
+.header-list {
+  gap: 4%;
+}
+.header-list a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+.search-bar {
+  width: 32%;
+}
