@@ -668,7 +668,7 @@ export let electronicProducts = [
         user: '6508eba19713977d34744e82',
         name: 'q',
         rate: 5,
-        Comment: '^^~',
+        Comment: 'Good',
         date: '2023-09-19T00:29:28.916Z',
         _id: '6508ebc12227d52b9afe21fa',
       },

@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
+import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import './Header.css'
@@ -44,7 +45,10 @@ const Header = () => {
             <a href='#'>More</a>
           </div>
           <div>
-            <a href='#'>Cart</a>
+            <a href='#'>
+              <img src={cart} className='pe-2' />
+              Cart
+            </a>
           </div>
         </div>
       </div>
