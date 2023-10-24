@@ -2,27 +2,50 @@ import React from 'react'
 
 const CartItems = () => {
   return (
-    <div className=' d-flex  border p-2 gap-4'>
-      {/* left */}
-      <div className='  d-flex flex-column gap-3'>
-        <img className=' mx-auto my-2 w-28' />
-        <div className=' mx-auto w-full rounded-2xl overflow-hidden d-flex'>
-          <button className='  p-1 px-4 bg-slate-300 border-black'>-</button>
-          <input value='0' type='text' className=' px-3 border w-0' />
-          <button className='  p-1 px-4 bg-slate-300 border-black'>+</button>
+    <div className='container'>
+      <div className='row'>
+        {/* left */}
+        <div className='col-lg-4'>
+          <div className='d-flex flex-column'>
+            <img />
+            <div>
+              <button className='  p-1 px-4 border border-light rounded '>
+                -
+              </button>
+              <input
+                value='0'
+                type='text'
+                style={{
+                  width: '40px',
+                  textAlign: 'center',
+                  outline: 'none',
+                }}
+                className=' border border-light rounded '
+              />
+              <button className='  p-1 px-4 border border-light rounded'>
+                +
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* center/details */}
-      <div className=' d-flex  gap-3 w-full justify-between items-start p-2'>
-        <div className='d-flex flex-column gap-3'>
-          <h2>title</h2>
+        {/* right details */}
+        <div className='col-lg-8'>
+          <div className='row d-flex justify-content-around align-items-center'>
+            <div className='col-lg-10'>
+              <div className='d-flex flex-column gap-3'>
+                <h2>title</h2>
+              </div>
+            </div>
+            <div className='col-lg-2'>
+              <div>
+                <button className=' px-3 py-1 border border-danger rounded  fw-normal  text-dark '>
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* remove button */}
-        <div>
-          <button>Remove</button>
-        </div>
+        {/* right side */}
       </div>
     </div>
   )
