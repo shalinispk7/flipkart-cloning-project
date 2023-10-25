@@ -4,8 +4,13 @@ import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import './Header.css'
+import { Link } from 'react-router-dom'
+import { ProductContext } from '../../Store/ProductContext'
+import { useContext } from 'react'
 
 const Header = () => {
+  const { productsAdded, setProductsAdded } = useContext(ProductContext)
+
   return (
     <section className='bg-primary '>
       <div className='container'>
@@ -44,12 +49,18 @@ const Header = () => {
           <div>
             <a href='#'>More</a>
           </div>
-          <div>
+          <Link to={'/cart'}>
+            <div>
+              <img src={cart} className='pe-2' />
+              Cart<span>({Object.keys(productsAdded).length})</span>
+            </div>
+          </Link>
+          {/* <div>
             <a href='#'>
               <img src={cart} className='pe-2' />
               Cart
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

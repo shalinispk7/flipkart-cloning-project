@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {
   allProducts,
@@ -7,7 +7,7 @@ import {
 } from '../Product/ProductData'
 import cart from '../../Assets/svg/cart.svg'
 // import buynow from '../../Assets/svg/buynow.svg'
-import { BagHeart, Tag, PersonCircle } from 'react-bootstrap-icons'
+import { BagHeart, Tag, PersonCircle, Apple } from 'react-bootstrap-icons'
 import './ProductDetails.css'
 import { ProductContext } from '../../Store/ProductContext'
 import { useContext } from 'react'
@@ -17,15 +17,32 @@ const ProductDetails = () => {
   const navigate = useNavigate()
   const { productsAdded, setProductsAdded } = useContext(ProductContext) //productcontext la erunthu yethu use panromo athu left side then use contextla enga erunthu yeduthutu varamo athu podanum
 
-  const AddToCart = () => {
+  const AddToCart = (e) => {
+    const cartproduct = allProducts.filter(
+      (ev) => ev._id === e.target.getAttribute('data-prd-id')
+    )
+
+    // console.log(cartproduct)
     setProductsAdded((prev) => ({
       ...prev,
+      [e.target.getAttribute('data-prd-id')]: {
+        name: cartproduct[0].title,
+        price: cartproduct[0].cureted_price,
+        img: cartproduct[0].images[0].url,
+        stock: cartproduct[0].stock,
+        count: prev[e.target.getAttribute('data-prd-id')]?.count
+          ? prev[e.target.getAttribute('data-prd-id')].count + 1
+          : 1,
+      },
     }))
-    navigate('/cart')
+    // navigate('/cart')
   }
   const BuyNow = () => {
     navigate('/checkout')
   }
+  useEffect(() => {
+    console.log(productsAdded)
+  }, [productsAdded])
   return (
     <>
       {allProducts
@@ -48,9 +65,10 @@ const ProductDetails = () => {
                       <div className='d-flex align-items-center gap-4 justify-content-between mt-4'>
                         <button
                           className='w-100 buybtn'
-                          onClick={() => AddToCart()}
+                          data-prd-id={e._id}
+                          onClick={(event) => AddToCart(event)}
                         >
-                          <img src={cart} className='pe-2' />
+                          {/* <img src={cart} className='pe-2' /> */}
                           ADD TO CART
                         </button>
                         <button
