@@ -23,8 +23,11 @@ const Cart = () => {
         </div>
         {/* cart container */}
         <div className='d-flex flex-column'>
-          <CartItems />
-          {/* <EmptyCart /> */}
+          {Object.keys(productsAdded).length > 0 ? (
+            <CartItems />
+          ) : (
+            <EmptyCart />
+          )}
         </div>
         {/* cart container ends */}
       </div>
@@ -33,3 +36,11 @@ const Cart = () => {
 }
 
 export default Cart
+
+{
+  /* <div className='d-flex flex-column'>
+          {({Object.keys(productsAdded).length})>0?
+          <CartItems />:
+          <EmptyCart />}
+        </div> */
+}

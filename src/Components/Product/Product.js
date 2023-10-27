@@ -11,26 +11,28 @@ const Product = () => {
 
   return (
     <>
-      <Banner />
-      <h3>Top Rated Products</h3>
-      <div className='row'>
-        {product.map((val, index) => {
-          return <ProductCard value={val} />
-        })}
-      </div>
-      {/* womens */}
-      <h3>women products</h3>
-      <div className='row'>
-        {womenProduct.map((val, index) => {
-          return <ProductCard value={val} />
-        })}
-      </div>
-      {/* electronics */}
-      <h3>Electronic Products</h3>
-      <div className='row'>
-        {electronicProduct.map((val, index) => {
-          return <ProductCard value={val} />
-        })}
+      <div className='container'>
+        <Banner />
+        <h3 className='text-dark'>Top Rated Products</h3>
+        <div className='row'>
+          {product.map((val, index) => {
+            return <ProductCard key={index} value={val} />
+          })}
+        </div>
+        {/* womens */}
+        <h3 className='text-dark'>women products</h3>
+        <div className='row'>
+          {womenProduct.map((val, index) => {
+            return <ProductCard key={index} value={val} />
+          })}
+        </div>
+        {/* electronics */}
+        <h3 className='text-dark'>Electronic Products</h3>
+        <div className='row'>
+          {electronicProduct.map((val, index) => {
+            return <ProductCard key={index} value={val} />
+          })}
+        </div>
       </div>
     </>
   )

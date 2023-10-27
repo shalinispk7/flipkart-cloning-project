@@ -7,7 +7,13 @@ import {
 } from '../Product/ProductData'
 import cart from '../../Assets/svg/cart.svg'
 // import buynow from '../../Assets/svg/buynow.svg'
-import { BagHeart, Tag, PersonCircle, Apple } from 'react-bootstrap-icons'
+import {
+  BagHeart,
+  TagFill,
+  PersonCircle,
+  Apple,
+  Person,
+} from 'react-bootstrap-icons'
 import './ProductDetails.css'
 import { ProductContext } from '../../Store/ProductContext'
 import { useContext } from 'react'
@@ -17,8 +23,9 @@ const ProductDetails = () => {
   const navigate = useNavigate()
   const { productsAdded, setProductsAdded } = useContext(ProductContext) //productcontext la erunthu yethu use panromo athu left side then use contextla enga erunthu yeduthutu varamo athu podanum
 
-  const AddToCart = (e) => {
+  const cartUpdate = (e) => {
     const cartproduct = allProducts.filter(
+      //yentha product click panramo atha matu filter pani cart component ku yeduthutu pogum
       (ev) => ev._id === e.target.getAttribute('data-prd-id')
     )
 
@@ -27,17 +34,23 @@ const ProductDetails = () => {
       ...prev,
       [e.target.getAttribute('data-prd-id')]: {
         name: cartproduct[0].title,
-        price: cartproduct[0].cureted_price,
+        curetedprice: cartproduct[0].cureted_price,
+        price: cartproduct[0].price,
         img: cartproduct[0].images[0].url,
         stock: cartproduct[0].stock,
+        rating: cartproduct[0].rating,
         count: prev[e.target.getAttribute('data-prd-id')]?.count
           ? prev[e.target.getAttribute('data-prd-id')].count + 1
           : 1,
       },
     }))
-    // navigate('/cart')
   }
-  const BuyNow = () => {
+
+  const AddToCart = (e) => {
+    cartUpdate(e)
+  }
+  const BuyNow = (e) => {
+    cartUpdate(e)
     navigate('/checkout')
   }
   useEffect(() => {
@@ -46,16 +59,16 @@ const ProductDetails = () => {
   return (
     <>
       {allProducts
-        .filter((e) => e._id === id)
+        .filter((e) => e._id === id) //clicked equal to products id
         .map((e, index) => {
           return (
             <>
               <div className='container'>
-                <div className='row'>
+                <div className='row mt-3'>
                   {/* LEFT SIDE STARTS*/}
                   <div className='col-lg-4 '>
                     <div className='card '>
-                      <div className='w-50 '>
+                      <div className='w-50'>
                         <img
                           src={e.images[0].url}
                           alt='imgage'
@@ -73,7 +86,8 @@ const ProductDetails = () => {
                         </button>
                         <button
                           className='w-100 buybtn buy'
-                          onClick={() => BuyNow()}
+                          data-prd-id={e._id}
+                          onClick={(event) => BuyNow(event)}
                         >
                           <BagHeart className='pe-2 fs-4' />
                           BUY NOW
@@ -88,21 +102,40 @@ const ProductDetails = () => {
                     <div>
                       <h2 className='fw-normal fs-5 '>{e.title}</h2>
                       {/* rating */}
-                      <div className='d-flex gap-4 align-items-center'>
-                        <div className='bg-success'>
-                          <h2 className='fw-normal fs-5 '>{e.rating}</h2>
+                      <div className='d-flex gap-2 align-items-center'>
+                        <div
+                          className='bg-success rounded-2'
+                          style={{ width: 'fit-content' }}
+                        >
+                          <div className='d-flex align-items-center gap-2 p-1 text-light '>
+                            <span
+                              className='fw-normal'
+                              style={{ fontSize: '1rem' }}
+                            >
+                              {e.rating.toFixed(2)}
+                            </span>
+                            <svg
+                              class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                              focusable='false'
+                              aria-hidden='true'
+                              viewBox='0 0 24 24'
+                              data-testid='StarIcon'
+                            >
+                              <path d='M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'></path>
+                            </svg>
+                          </div>
                         </div>
-                        <h2 className='  fw-normal  text-secondary fs-6'>
-                          {e.numrev} Ratings & {e.numrev}reviews
-                        </h2>
+                        <span className='  fw-normal  text-secondary fs-6'>
+                          {e.numrev} Ratings & {e.numrev} Reviews
+                        </span>
                       </div>
                       {/* price */}
-                      <h1 className='fs-6 fw-normal text-success '>
+                      <h2 className='fs-6 mt-2 fw-normal text-success '>
                         Special Price
-                      </h1>
+                      </h2>
                       <h1 className=' fw-bold fs-3'>
                         Rs. {e.price}
-                        <del className=' mx-4 text-secondary fw-bold fs-6'>
+                        <del className=' mx-3 text-secondary fw-bold fs-6'>
                           {' '}
                           Rs.{e.cureted_price}
                         </del>
@@ -128,29 +161,33 @@ const ProductDetails = () => {
                         <span>Category : </span> {e.category}
                       </p>
                       {/* offer SECTION */}
-                      <div className=' border '>
-                        <h2 className=' border-bottom  fs-5  capitalize fw-normal'>
+                      <div className=' border mt-3'>
+                        <h2 className='p-2 border-bottom  fs-5  capitalize fw-normal'>
                           Available offers
                         </h2>
                         <ul className='d-flex flex-column '>
                           <li className=' d-flex gap-2 align-items-center'>
-                            <Tag className='text-success pe-2 fs-4' />
-                            <p>Buy this Product and Get Extra ₹500 Off </p>
+                            <TagFill className='text-success pe-2 fs-3' />
+                            <p className='fs-6' style={{ color: '#00000096' }}>
+                              Buy this Product and Get Extra ₹500 Off{' '}
+                            </p>
                           </li>
                           <li className=' d-flex gap-2 align-items-center'>
-                            <Tag />
-                            <p>Buy this Product and Get Extra 10% cashback </p>
+                            <TagFill className='text-success pe-2 fs-3' />
+                            <p className='fs-6' style={{ color: '#00000096' }}>
+                              Buy this Product and Get Extra 10% cashback{' '}
+                            </p>
                           </li>
                           <li className=' d-flex gap-2 align-items-center'>
-                            <Tag />
-                            <p>
+                            <TagFill className='text-success pe-2 fs-3' />
+                            <p className='fs-6' style={{ color: '#00000096' }}>
                               Bank OfferFlat ₹200 off on HDFC Bank Credit/Debit
                               Card on 3 months EMI Txns, Min Txn Value ₹10,000
                             </p>
                           </li>
                           <li className=' d-flex gap-2 align-items-center'>
-                            <Tag />
-                            <p>
+                            <TagFill className='text-success pe-2 fs-3' />
+                            <p className='fs-6' style={{ color: '#00000096' }}>
                               Partner OfferSign-up for Flipkart Pay Later & get
                               free Times Prime Benefits worth ₹10,000*{' '}
                             </p>
@@ -159,29 +196,43 @@ const ProductDetails = () => {
                       </div>
                       {/* rating and review */}
                       <div className=' border border-bottom-0 my-4'>
-                        <h1 className='fw-normal fs-5 border-bottom'>
+                        <h2 className='p-2 fw-normal fs-5 border-bottom'>
                           Reviews And Ratings
-                        </h1>
+                        </h2>
                         {e.reviews && e.reviews.length > 0 ? (
                           e.reviews.map((elemVal, index) => {
                             return (
                               <div
                                 key={index}
-                                className=' d-flex flex-column gap-4 border-bottom'
+                                className=' d-flex flex-column gap-1 border-bottom ps-3 p-3'
                               >
                                 <div className=' d-flex align-items-center'>
-                                  <PersonCircle />
-                                  <h2 className='fs-5 fw-normal capitalize'>
+                                  <PersonCircle
+                                    className='fs-3'
+                                    style={{ color: '#0000004f' }}
+                                  />
+                                  <h2 className='fs-5 fw-normal capitalize px-2'>
                                     {' '}
                                     {elemVal.name}{' '}
                                   </h2>
-                                  <div className=' fw-bold flex gap-1 w-fit items-center fs-5 bg-success text-white px-2 rounded-sm'>
-                                    <h2>{elemVal.rate}</h2>
+                                  <div className=' bg-success text-white px-2 rounded-2 d-flex align-items-center gap-1'>
+                                    <span className='fs-6'>
+                                      {elemVal.rate.toFixed(2)}
+                                    </span>
+                                    <svg
+                                      class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                                      focusable='false'
+                                      aria-hidden='true'
+                                      viewBox='0 0 24 24'
+                                      data-testid='StarIcon'
+                                    >
+                                      <path d='M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'></path>
+                                    </svg>
                                   </div>
                                 </div>
-                                <p className=' fw-5 font-medium'>
+                                <h2 className=' fs-6 fw-light'>
                                   {elemVal.Comment}
-                                </p>
+                                </h2>
                               </div>
                             )
                           })
@@ -196,11 +247,16 @@ const ProductDetails = () => {
                       {/* product description SECTION  */}
                       <div className=' border'>
                         <div className=' d-flex align-items-center border-bottom fw-normal'>
-                          <h2 className='fs-4 fw-normal'>
+                          <h2 className='p-2 fs-4 fw-normal'>
                             Product Description
                           </h2>
                         </div>
-                        <p className='fs-6 '>{e.decr}</p>
+                        <p
+                          className='fs-6'
+                          style={{ padding: '12px', lineHeight: '27px' }}
+                        >
+                          {e.decr}
+                        </p>
                       </div>
                     </div>
                     {/* HEADING SECTION ENDS */}

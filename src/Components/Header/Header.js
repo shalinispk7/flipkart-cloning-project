@@ -7,6 +7,9 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import { ProductContext } from '../../Store/ProductContext'
 import { useContext } from 'react'
+import { Person } from 'react-bootstrap-icons'
+import { Inbox } from 'react-bootstrap-icons'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   const { productsAdded, setProductsAdded } = useContext(ProductContext)
@@ -14,53 +17,69 @@ const Header = () => {
   return (
     <section className='bg-primary '>
       <div className='container'>
-        <div className='d-flex justify-content-center align-items-center header-list py-4 px-1 '>
-          <div>
-            <a href='#'>FlipKart</a>
-            <h6 className='text-white fw-light fst-italic'>
-              Explore
-              <span className='opacity-1  ps-1 text-warning'>
-                Plus
-                {/* <svg
-                  class='MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1k33q06'
-                  focusable='false'
-                  aria-hidden='true'
-                  viewBox='0 0 24 24'
-                  data-testid='StarOutlineIcon'
-                >
-                  <path d='m22 9.24-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z'></path>
-                </svg> */}
-              </span>
-            </h6>
-          </div>
-          <div className='search-bar'>
-            <input
-              type='text'
-              placeholder='search for products and more...'
-              className='outline-none w-100 p-2'
-            />
-          </div>
-          <div>
-            <a href='#'>Prem Kumar</a>
-          </div>
-          <div>
-            <a href='#'>Become a Seller</a>
-          </div>
-          <div>
-            <a href='#'>More</a>
-          </div>
-          <Link to={'/cart'}>
-            <div>
-              <img src={cart} className='pe-2' />
-              Cart<span>({Object.keys(productsAdded).length})</span>
+        <div className='row d-flex align-items-center p-2'>
+          <div className='col-lg-5'>
+            <div className='row d-flex align-items-center '>
+              <div className='col-lg-4'>
+                <NavLink to={'/'}>
+                  <a href='#' className='fs-5 text-white text-decoration-none'>
+                    Flipkart
+                  </a>
+                </NavLink>
+
+                <h6 className='text-white fw-light fst-italic'>
+                  Explore<span className='text-warning ps-1'>Plus</span>
+                </h6>
+              </div>
+              <div className='col-lg-8'>
+                <input
+                  class='form-control'
+                  list='datalistOptions'
+                  id='exampleDataList'
+                  placeholder='search for products,brands and more...'
+                />
+                <datalist id='datalistOptions'>
+                  <option value='San Francisco' />
+                  <option value='New York' />
+                  <option value='Seattle' />
+                  <option value='Los Angeles' />
+                  <option value='Chicago' />
+                </datalist>
+                {/* <input
+                  type='text'
+                  placeholder='search for products and more...'
+                  className='p-1 outline-0 border-none w-100 '
+                /> */}
+              </div>
             </div>
-          </Link>
-          {/* <div>
-            <a href='#'>
-              <img src={cart} className='pe-2' />
-              Cart
-            </a>
-          </div> */}
+          </div>
+          <div className='col-lg-7 text-light text-start'>
+            <div className='row'>
+              <div className='col-lg-3'>
+                <button className='text-primary border-0 px-3  fs-5 fw-bold d-flex align-items-center'>
+                  <Person className='pe-2 fs-3' />
+                  Login
+                </button>
+              </div>
+              <div className='col-lg-4'>
+                <h2 className='fw-bold fs-5'>
+                  <Inbox className='pe-2 fs-3' />
+                  Become a Seller
+                </h2>
+              </div>
+              <div className='col-lg-2'>
+                <h2 className='fw-bold fs-5'>More</h2>
+              </div>
+              <div className='col-lg-3'>
+                <Link to={'/cart'}>
+                  <div className='fw-bold fs-5 text-light'>
+                    <img src={cart} className='pe-2' />
+                    Cart<span> ({Object.keys(productsAdded).length})</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

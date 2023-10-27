@@ -4,92 +4,88 @@ import './Footer.css'
 const Footer = () => {
   return (
     <footer>
-      <section className='footer-sec'>
+      <section className='footer-sec pt-5 pb-3'>
         <div className='container'>
-          <div className='footer-head d-flex justify-content-center flex-wrap-wrap py-3 px-0'>
-            <div className='footer-list '>
-              <h5>ABOUT</h5>
-              <a href='#'>contact us</a>
-              <a href='#'>about us</a>
-              <a href='#'>careers us</a>
-              <a href='#'>flipkart stories</a>
-              <a href='#'>press</a>
-              <a href='#'>flipkart wholesale</a>
-              <a href='#'>corporate information</a>
+          <div className='row'>
+            <div className='col-lg-7'>
+              <div className='row'>
+                <div className='col-lg-3 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>ABOUT</h2>
+                  <ul>
+                    <li>contact us</li>
+                    <li>about us</li>
+                    <li>careers us</li>
+                    <li>flipkart stories</li>
+                    <li>press</li>
+                    <li>flipkart wholesale</li>
+                    <li>corporate information</li>
+                  </ul>
+                </div>
+                <div className='col-lg-3 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>HELP</h2>
+                  <ul>
+                    <li>payments</li>
+                    <li>shipping</li>
+                    <li>cancellation & returns</li>
+                    <li>FAQ</li>
+                    <li>report infringement</li>
+                  </ul>
+                </div>
+                <div className='col-lg-3 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>POLICY</h2>
+                  <ul>
+                    <li>cancellation & returns</li>
+                    <li>terms of use</li>
+                    <li>security</li>
+                    <li>privacy</li>
+                    <li>sitemap</li>
+                    <li>grievance redressal</li>
+                    <li>EPR complilance</li>
+                  </ul>
+                </div>
+                <div className='col-lg-3 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>SOCIAL</h2>
+                  <ul className='ps-0'>
+                    <li>facebook</li>
+                    <li>twitter</li>
+                    <li>youTube</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className='footer-list'>
-              <h5>HELP</h5>
-              <a href='#'>payments</a>
-              <a href='#'>shipping</a>
-              <a href='#'>cancellation & returns</a>
-              <a href='#'>FAQ</a>
-              <a href='#'>report infringement</a>
-            </div>
-            <div className='footer-list'>
-              <h5>CUSTOMER POLICY</h5>
-              <a href='#'>cancellation & returns</a>
-              <a href='#'>terms of use</a>
-              <a href='#'>security</a>
-              <a href='#'>privacy</a>
-              <a href='#'>sitemap</a>
-              <a href='#'>grievance redressal</a>
-              <a href='#'>EPR complilance</a>
-            </div>
-            <div className='footer-list'>
-              <h5>SOCIAL</h5>
-              <a href='#'>facebook</a>
-              <a href='#'>twitter</a>
-              <a href='#'>youTube</a>
-            </div>
-            <div className='footer-list mail-line pe-1 ps-2'>
-              <h5>Mail us:</h5>
-              <p>Flipkart Internet Private Limited,</p>
-              <p>Building Alyssa,Begonia &</p>
-              <p>Clove Ring Road,Devarabeesanahalli Village,</p>
-              <p>Bengaluru,560103,</p>
-              <p>Karnataka,India</p>
-            </div>
-            <div className='footer-list ps-1'>
-              <h5>Registered Office:</h5>
-              <p>Flipkart Internet Private Limited,</p>
-              <p>Building Alyssa,Begonia &</p>
-              <p>Clove Ring Road,Devarabeesanahalli Village,</p>
-              <p>Bengaluru,560103,</p>
-              <p>Karnataka,India</p>
-              <p>CIN:U51109KA2012PTC066107</p>
-              <p>
-                Telephone: <span>044-45614700</span>
-              </p>
-            </div>
-          </div>
-          {/* footer border */}
-          <div className='foot-add'>
-            <div className='add-list'>
-              {/* <img src={seller} alt='cart Logo' /> */}
-              <a href='#'>Become a Seller</a>
-            </div>
-
-            <div className='add-list'>
-              {/* <img src={advertise} alt='cart Logo' /> */}
-              <a href='#'>Advertise</a>
-            </div>
-            <div className='add-list'>
-              {/* <img src={gift} alt='cart Logo' /> */}
-              <a href='#'>Gift Cards</a>
-            </div>
-            <div className='add-list'>
-              {/* <img src={help} alt='cart Logo' /> */}
-              <a href='#'>Help Center</a>
-            </div>
-            <div className='add-list'>
-              <a href='#'>
-                © 2007-2023 <a href='https://www.flipkart.com/'>Flipkart.com</a>
-              </a>
-            </div>
-            <div className='add-list'>
-              {/* <img src={payments} alt='cart Logo' /> */}
+            <div className='col-lg-5'>
+              <div className='row'>
+                <div className='col-lg-6 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>MAIL US: </h2>
+                  <ul>
+                    <li>Flipkart Internet Private Limited,</li>
+                    <li>Building Alyssa,Begonia &</li>
+                    <li>Clove Ring Road,Devarabeesanahalli Village,</li>
+                    <li>Bengaluru,560103.</li>
+                    <li>Karnataka,India</li>
+                  </ul>
+                </div>
+                <div className='col-lg-6 d-flex flex-column align-items-center'>
+                  <h2 className='fs-6 fw-light'>REGISTERED OFFICE: </h2>
+                  <ul>
+                    <li>Flipkart Internet Private Limited,</li>
+                    <li>Building Alyssa,Begonia &</li>
+                    <li>Clove Ring Road,Devarabeesanahalli Village,</li>
+                    <li>Bengaluru,560103.</li>
+                    <li>Karnataka,India</li>
+                    <li>CIN:U51109KA2012PTC066107</li>
+                    <li>
+                      Telephone: <span>044-45614700</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
+          {/* <div className='final d-flex flex-column align-items-center'>
+            <h2 className='fs-5'>All Rights Reserved</h2>
+            <h3 className='fs-5'>Designed By Shalini</h3>
+          </div> */}
         </div>
       </section>
     </footer>

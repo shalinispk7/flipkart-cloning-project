@@ -2,54 +2,22 @@ footer {
   background-color: rgb(241, 242, 244);
 }
 .footer-sec {
-  background-color: rgb(33, 33, 33);
+  background-color: rgb(23, 35, 55);
   margin-top: 10px;
+  color: white;
 }
-.footer-list {
-  display: flex;
-  flex-direction: column;
-  width: 16.3%;
-}
-.footer-list h5 {
-  color: #878787;
-  font-size: 12px;
-  line-height: 12px;
-  padding-bottom: 6px;
-}
-.footer-list a {
-  text-decoration: none;
+ul li {
+  list-style-type: none;
   text-transform: capitalize;
-  font-family: inter_semi_bold, fallback-inter_semi_bold, Arial, sans-serif;
-  font-size: 13px;
-  color: #fff;
-  display: block;
-  line-height: 30px;
-}
-.footer-list a:hover {
-  text-decoration: underline;
-  color: #fff;
-}
-.footer-list p {
-  color: #fff;
-  font-size: 13px;
+  color: #ffffff70;
   line-height: 25px;
-}
-.mail-line {
-  border-left: 1px solid #454d5e;
+  font-size: small;
 }
 
-.foot-add {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 50px 0px;
-  align-items: center;
+.final {
   border-top: 1px solid #454d5e;
 }
-.add-list {
-  display: flex;
-  gap: 7px;
-}
-.add-list a {
-  color: #fff;
-  text-decoration: none;
+.final h2,
+h3 {
+  color: #ffffff70;
 }
