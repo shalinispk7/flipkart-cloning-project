@@ -4,6 +4,7 @@ import Product from '../Product/Product'
 import ProductDetails from '../ProductDetails/ProductDetails'
 import Cart from '../Cart/Cart'
 import CheckOutOrder from '../Orders/CheckOutOrder'
+import OrderSummary from '../OrderSummary/OrderSummary'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const Body = () => {
@@ -14,6 +15,7 @@ const Body = () => {
         <Route path='/ProductDetails/:id' element={<ProductDetails />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/checkout' element={<CheckOutOrder />}></Route>
+        <Route path='/ordersummary' element={<OrderSummary />}></Route>
       </Routes>
     </>
   )
