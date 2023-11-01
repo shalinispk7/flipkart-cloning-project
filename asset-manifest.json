@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/flipkart-cloning-project/static/css/main.c834f565.css",
+    "main.js": "/flipkart-cloning-project/static/js/main.8d2ba1d9.js",
+    "static/js/787.e054b951.chunk.js": "/flipkart-cloning-project/static/js/787.e054b951.chunk.js",
+    "static/media/Flipkart-SuperCoin.webp": "/flipkart-cloning-project/static/media/Flipkart-SuperCoin.6e89074e9cbff85b8c57.webp",
+    "static/media/promotion_banner_v2_inactive_2.webp": "/flipkart-cloning-project/static/media/promotion_banner_v2_inactive_2.1d540133db4a20cf7ac7.webp",
+    "static/media/banner-3.webp": "/flipkart-cloning-project/static/media/banner-3.de47722c8663847699a8.webp",
+    "static/media/banner-1.webp": "/flipkart-cloning-project/static/media/banner-1.4bb1e981ab449083a396.webp",
+    "static/media/banner-6.webp": "/flipkart-cloning-project/static/media/banner-6.24dd28728830a7d2b757.webp",
+    "static/media/banner-2.webp": "/flipkart-cloning-project/static/media/banner-2.85ab4f87cd8755a40d1e.webp",
+    "static/media/banner-5.webp": "/flipkart-cloning-project/static/media/banner-5.b62c6d1460799f54e9a1.webp",
+    "static/media/banner-4.webp": "/flipkart-cloning-project/static/media/banner-4.2812711ba4d59e2816dc.webp",
+    "static/media/col-1.webp": "/flipkart-cloning-project/static/media/col-1.4290f7efafb3cf688da9.webp",
+    "static/media/empty.webp": "/flipkart-cloning-project/static/media/empty.c1b29ed47e2361efe393.webp",
+    "static/media/col-2.webp": "/flipkart-cloning-project/static/media/col-2.0dbf48bba5d51a676083.webp",
+    "static/media/col-3.webp": "/flipkart-cloning-project/static/media/col-3.2aeb7a4e0ba625649880.webp",
+    "static/media/bank.webp": "/flipkart-cloning-project/static/media/bank.9ead1b853814a839c535.webp",
+    "index.html": "/flipkart-cloning-project/index.html",
+    "static/media/cart.svg": "/flipkart-cloning-project/static/media/cart.e610ceac48f803c7ead6a2a570909d1e.svg",
+    "static/media/promotion.webp": "/flipkart-cloning-project/static/media/promotion.4de1b3f019393d0007b1.webp",
+    "main.c834f565.css.map": "/flipkart-cloning-project/static/css/main.c834f565.css.map",
+    "main.8d2ba1d9.js.map": "/flipkart-cloning-project/static/js/main.8d2ba1d9.js.map",
+    "787.e054b951.chunk.js.map": "/flipkart-cloning-project/static/js/787.e054b951.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c834f565.css",
+    "static/js/main.8d2ba1d9.js"
+  ]
+}
