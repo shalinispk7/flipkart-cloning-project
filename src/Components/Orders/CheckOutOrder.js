@@ -57,7 +57,7 @@ const CheckOutOrder = () => {
         navigate('/ordersummary')
       },
       prefill: {
-        name: 'Customer Name',
+        name: 'SHALINI',
         email: 'customer@example.com',
         contact: 'customer_contact_number',
       },
@@ -72,27 +72,10 @@ const CheckOutOrder = () => {
       <div className='row'>
         {/* left side starts */}
         <div className='col-lg-8'>
-          {/* login details */}
-          <div className='d-flex justify-content-center bg-light gap-6 p-3'>
-            <div className='fs-6 w-6 h-6 fw-normal bg-gray-200 text-primary px-2 me-2 d-flex justify-content-center '>
-              1.
-            </div>
-            <div className=' d-flex flex-column align-items-start flex-grow-1'>
-              <h2 className='fs-5 fw-normal'>Login</h2>
-            </div>
-            <div>
-              <button className='text-primary fs-5 fw-normal  border border-primary px-4 py-1'>
-                Login
-              </button>
-            </div>
-          </div>
           {/* delivery address */}
           <div className='bg-success'>
             {/* heading start */}
             <div className='bg-primary gap-6 p-1 mt-3 px-3 text-white d-flex '>
-              <div className='fs-6 w-6 h-6 fw-normal text-white px-2 me-2'>
-                2.
-              </div>
               <div>
                 <h2 className='fs-5 fw-normal'>Delivery Address</h2>
               </div>
@@ -127,15 +110,15 @@ const CheckOutOrder = () => {
                   <label for='floatingPassword'>Password</label>
                 </div>
               </div>
-              <button
+              {/* <button
                 type='submit'
                 style={{
                   backgroundColor: 'orange',
                 }}
                 className=' px-3 border border-light rounded uppercase  fs-5 fw-normal py-2 text-light mt-3 '
               >
-                Save And Delivery Here
-              </button>
+                Deliver Here
+              </button> */}
             </form>
           </div>
           {/* address details ends*/}
@@ -143,9 +126,6 @@ const CheckOutOrder = () => {
           {/* order summary */}
           <div>
             <div className='d-flex align-items-center bg-primary gap-6 p-1 px-3 mt-3'>
-              <div className='fs-6 w-6 h-6 fw-normal text-white px-2 me-2'>
-                3.
-              </div>
               <div className=' d-flex flex-column align-items-start'>
                 <h2 className='fs-5 fw-normal text-light'>Order Summary</h2>
               </div>
@@ -157,9 +137,6 @@ const CheckOutOrder = () => {
           {/* payment option */}
           <div>
             <div className='d-flex align-items-center bg-primary mt-3 gap-6 p-1 px-3'>
-              <div className='fs-6 w-6 h-6 fw-normal text-white px-2 me-2'>
-                4.
-              </div>
               <div className=' d-flex flex-column align-items-start'>
                 <h2 className='fs-5 fw-normal text-light'>Payment Options</h2>
               </div>

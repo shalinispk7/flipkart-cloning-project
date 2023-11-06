@@ -6,7 +6,7 @@ import ProductContextProvider from './Store/ProductContext'
 
 function App() {
   return (
-    <div>
+    <>
       <HashRouter>
         <ProductContextProvider>
           <Header />
@@ -14,7 +14,7 @@ function App() {
           <Footer />
         </ProductContextProvider>
       </HashRouter>
-    </div>
+    </>
   )
 }
 

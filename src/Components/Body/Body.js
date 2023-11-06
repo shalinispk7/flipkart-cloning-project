@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Product from '../Product/Product'
 import ProductDetails from '../ProductDetails/ProductDetails'
 import Cart from '../Cart/Cart'

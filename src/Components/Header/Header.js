@@ -4,15 +4,14 @@ import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { ProductContext } from '../../Store/ProductContext'
 import { useContext } from 'react'
 import { Person } from 'react-bootstrap-icons'
 import { Inbox } from 'react-bootstrap-icons'
-import { NavLink } from 'react-router-dom'
 
 const Header = () => {
-  const { productsAdded, setProductsAdded } = useContext(ProductContext)
+  const { productsAdded } = useContext(ProductContext)
 
   return (
     <section className='bg-primary '>
@@ -39,11 +38,11 @@ const Header = () => {
                   placeholder='search for products,brands and more...'
                 />
                 <datalist id='datalistOptions'>
-                  <option value='San Francisco' />
-                  <option value='New York' />
-                  <option value='Seattle' />
-                  <option value='Los Angeles' />
-                  <option value='Chicago' />
+                  <option value='Laptop' />
+                  <option value='Mobile phones' />
+                  <option value='Shoes' />
+                  <option value='Women Clothings' />
+                  <option value='Sand disc' />
                 </datalist>
                 {/* <input
                   type='text'
@@ -58,7 +57,7 @@ const Header = () => {
               <div className='col-lg-3'>
                 <button className='text-primary border-0 px-3  fs-5 fw-bold d-flex align-items-center'>
                   <Person className='pe-2 fs-3' />
-                  Login
+                  Prem
                 </button>
               </div>
               <div className='col-lg-4'>
