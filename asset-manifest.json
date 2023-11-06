@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/flipkart-cloning-project/static/css/main.c834f565.css",
-    "main.js": "/flipkart-cloning-project/static/js/main.8d2ba1d9.js",
-    "static/js/787.e054b951.chunk.js": "/flipkart-cloning-project/static/js/787.e054b951.chunk.js",
+    "main.js": "/flipkart-cloning-project/static/js/main.7a33ccc1.js",
     "static/media/Flipkart-SuperCoin.webp": "/flipkart-cloning-project/static/media/Flipkart-SuperCoin.6e89074e9cbff85b8c57.webp",
     "static/media/promotion_banner_v2_inactive_2.webp": "/flipkart-cloning-project/static/media/promotion_banner_v2_inactive_2.1d540133db4a20cf7ac7.webp",
     "static/media/banner-3.webp": "/flipkart-cloning-project/static/media/banner-3.de47722c8663847699a8.webp",
@@ -20,11 +19,10 @@
     "static/media/cart.svg": "/flipkart-cloning-project/static/media/cart.e610ceac48f803c7ead6a2a570909d1e.svg",
     "static/media/promotion.webp": "/flipkart-cloning-project/static/media/promotion.4de1b3f019393d0007b1.webp",
     "main.c834f565.css.map": "/flipkart-cloning-project/static/css/main.c834f565.css.map",
-    "main.8d2ba1d9.js.map": "/flipkart-cloning-project/static/js/main.8d2ba1d9.js.map",
-    "787.e054b951.chunk.js.map": "/flipkart-cloning-project/static/js/787.e054b951.chunk.js.map"
+    "main.7a33ccc1.js.map": "/flipkart-cloning-project/static/js/main.7a33ccc1.js.map"
   },
   "entrypoints": [
     "static/css/main.c834f565.css",
-    "static/js/main.8d2ba1d9.js"
+    "static/js/main.7a33ccc1.js"
   ]
 }
