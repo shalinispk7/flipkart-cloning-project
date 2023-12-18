@@ -96,7 +96,7 @@ const CheckOutOrder = () => {
                     type='email'
                     className='form-control'
                     id='floatingInput'
-                    placeholder='name@example.com'
+                    placeholder='.com'
                   />
                   <label for='floatingInput'>Email address</label>
                 </div>
@@ -105,7 +105,7 @@ const CheckOutOrder = () => {
                     type='password'
                     className='form-control '
                     id='floatingPassword'
-                    placeholder='Password'
+                    placeholder=''
                   />
                   <label for='floatingPassword'>Password</label>
                 </div>

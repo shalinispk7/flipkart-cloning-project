@@ -8,7 +8,7 @@ import { useContext } from 'react'
 const Cart = () => {
   const { productsAdded, setProductsAdded } = useContext(ProductContext)
   return (
-    <div className=''>
+    <>
       <div className='container'>
         {/* heading */}
         <div className='d-flex align-items-center justify-content-between border-bottom p-3'>
@@ -31,16 +31,8 @@ const Cart = () => {
         </div>
         {/* cart container ends */}
       </div>
-    </div>
+    </>
   )
 }
 
 export default Cart
-
-{
-  /* <div className='d-flex flex-column'>
-          {({Object.keys(productsAdded).length})>0?
-          <CartItems />:
-          <EmptyCart />}
-        </div> */
-}

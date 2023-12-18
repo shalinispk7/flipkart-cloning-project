@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
@@ -6,22 +6,25 @@ import cart from '../../Assets/svg/cart.svg'
 import './Header.css'
 import { Link, NavLink } from 'react-router-dom'
 import { ProductContext } from '../../Store/ProductContext'
-import { useContext } from 'react'
-import { Person } from 'react-bootstrap-icons'
-import { Inbox } from 'react-bootstrap-icons'
+import { Person, InboxFill, CaretDownFill, Search } from 'react-bootstrap-icons'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 const Header = () => {
-  const { productsAdded } = useContext(ProductContext)
-
+  const { productsAdded, searchText, setSearchText } =
+    useContext(ProductContext)
+  const [userInput, setUserInput] = useState('')
   return (
     <section className='bg-primary '>
       <div className='container'>
         <div className='row d-flex align-items-center p-2'>
           <div className='col-lg-5'>
             <div className='row d-flex align-items-center '>
-              <div className='col-lg-4'>
+              <div className='col-lg-3'>
                 <NavLink to={'/'}>
-                  <a href='#' className='fs-5 text-white text-decoration-none'>
+                  <a
+                    href='#'
+                    className='fs-5 text-white text-decoration-none fw-bold'
+                  >
                     Flipkart
                   </a>
                 </NavLink>
@@ -30,20 +33,33 @@ const Header = () => {
                   Explore<span className='text-warning ps-1'>Plus</span>
                 </h6>
               </div>
-              <div className='col-lg-8'>
-                <input
-                  class='form-control'
-                  list='datalistOptions'
-                  id='exampleDataList'
-                  placeholder='search for products,brands and more...'
-                />
-                <datalist id='datalistOptions'>
+              <div className='col-lg-9'>
+                <div className='d-flex align-items-center justify-content-around gap-3 bg-light border-none'>
+                  <Search
+                    className='pe-1 ps-1 fw-bold fs-3'
+                    onClick={() => {
+                      setSearchText(userInput)
+                    }}
+                  />
+                  <input
+                    className='border-none outline-none form-control'
+                    list='datalistOptions'
+                    id='exampleDataList'
+                    placeholder='search for products and more...'
+                    type='text'
+                    value={userInput}
+                    onChange={(e) => {
+                      setUserInput(e.target.value)
+                    }}
+                  />
+                </div>
+                {/* <datalist id='datalistOptions'>
                   <option value='Laptop' />
                   <option value='Mobile phones' />
                   <option value='Shoes' />
                   <option value='Women Clothings' />
                   <option value='Sand disc' />
-                </datalist>
+                </datalist> */}
                 {/* <input
                   type='text'
                   placeholder='search for products and more...'
@@ -57,17 +73,36 @@ const Header = () => {
               <div className='col-lg-3'>
                 <button className='text-primary border-0 px-3  fs-5 fw-bold d-flex align-items-center'>
                   <Person className='pe-2 fs-3' />
-                  Prem
+                  Login
                 </button>
               </div>
               <div className='col-lg-4'>
-                <h2 className='fw-bold fs-5'>
-                  <Inbox className='pe-2 fs-3' />
-                  Become a Seller
-                </h2>
+                <Link to={'/seller'}>
+                  <h2 className='fw-bold fs-5 text-light '>
+                    <InboxFill className='pe-2 fs-3' />
+                    Become a Seller
+                  </h2>
+                </Link>
               </div>
               <div className='col-lg-2'>
-                <h2 className='fw-bold fs-5'>More</h2>
+                <Dropdown>
+                  <Dropdown.Toggle className='fw-bold fs-5'>
+                    {/* <h2 className='fw-bold fs-5'> */}
+                    {/* <CaretDownFill className='pe-2 fs-3' /> */}
+                    More
+                    {/* </h2> */}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
+                    <Dropdown.Item href='#/action-2'>
+                      Another action
+                    </Dropdown.Item>
+                    <Dropdown.Item href='#/action-3'>
+                      Something else
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
               <div className='col-lg-3'>
                 <Link to={'/cart'}>

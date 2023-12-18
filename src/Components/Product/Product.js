@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { allProducts, womenProducts, electronicProducts } from './ProductData'
 import ProductCard from './ProductCard'
 import Banner from '../Banner/Banner'
+import { ProductContext } from '../../Store/ProductContext'
 
 const Product = () => {
+  const { searchText } = useContext(ProductContext)
   return (
     <>
       <div className='container'>
@@ -11,7 +13,8 @@ const Product = () => {
         <h3 className='text-dark'>Top Rated Products</h3>
         <div className='row'>
           {allProducts.map((val, index) => {
-            return <ProductCard key={index} value={val} />
+            if (val.title.toLowerCase().indexOf(searchText?.toLowerCase()) >= 0)
+              return <ProductCard key={index} value={val} />
           })}
         </div>
         {/* womens */}

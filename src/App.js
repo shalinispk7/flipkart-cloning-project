@@ -10,6 +10,7 @@ function App() {
       <HashRouter>
         <ProductContextProvider>
           <Header />
+
           <Body />
           <Footer />
         </ProductContextProvider>

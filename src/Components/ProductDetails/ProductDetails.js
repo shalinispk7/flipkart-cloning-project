@@ -43,7 +43,7 @@ const ProductDetails = () => {
   return (
     <>
       {allProducts
-        .filter((e) => e._id === id) //clicked equal to products id  //allproducts la erunthu filter pani vaara id um productdetailsl url la vara id um same ah erukanum
+        .filter((e) => e._id === id) //allproducts la erunthu filter pani vaara id um productdetailsl url la vara id um same ah erukanum
         .map((e, index) => {
           return (
             <>

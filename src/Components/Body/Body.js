@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from '../Product/Product'
+import Seller from '../Header/Seller'
 import ProductDetails from '../ProductDetails/ProductDetails'
 import Cart from '../Cart/Cart'
 import CheckOutOrder from '../Orders/CheckOutOrder'
@@ -11,6 +12,7 @@ const Body = () => {
     <>
       <Routes>
         <Route path='/' element={<Product />}></Route>
+        <Route path='/seller' element={<Seller />}></Route>
         <Route path='/ProductDetails/:id' element={<ProductDetails />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='/checkout' element={<CheckOutOrder />}></Route>
