@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ProductCard.css'
 
 const ProductCard = (props) => {
-  console.log('product card', props)
+  // console.log('product card', props)
   return (
     <div className='col-lg-3 mb-3'>
       <div className='card' style={{ height: '60vh', paddingTop: '12px' }}>

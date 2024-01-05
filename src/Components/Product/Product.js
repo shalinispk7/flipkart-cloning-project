@@ -21,14 +21,16 @@ const Product = () => {
         <h3 className='text-dark'>women products</h3>
         <div className='row'>
           {womenProducts.map((val, index) => {
-            return <ProductCard key={index} value={val} />
+            if (val.title.toLowerCase().indexOf(searchText?.toLowerCase()) >= 0)
+              return <ProductCard key={index} value={val} />
           })}
         </div>
         {/* electronics */}
         <h3 className='text-dark'>Electronic Products</h3>
         <div className='row'>
           {electronicProducts.map((val, index) => {
-            return <ProductCard key={index} value={val} />
+            if (val.title.toLowerCase().indexOf(searchText?.toLowerCase()) >= 0)
+              return <ProductCard key={index} value={val} />
           })}
         </div>
       </div>
