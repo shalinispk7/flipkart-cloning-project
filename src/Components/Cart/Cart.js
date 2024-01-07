@@ -3,10 +3,11 @@ import CartItems from './CartItems'
 import EmptyCart from './EmptyCart'
 import { NavLink } from 'react-router-dom'
 import { ProductContext } from '../../Store/ProductContext'
-import { useContext } from 'react'
+
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
-  const { productsAdded, setProductsAdded } = useContext(ProductContext)
+  const { productsAdded } = useSelector((store) => store.user)
   return (
     <>
       <div className='container'>

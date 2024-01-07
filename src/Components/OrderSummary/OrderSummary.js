@@ -1,9 +1,10 @@
 import React from 'react'
 import { useContext } from 'react'
 import { ProductContext } from '../../Store/ProductContext'
+import { useSelector } from 'react-redux'
 
 const OrderSummary = () => {
-  const { productsAdded, setProductsAdded } = useContext(ProductContext)
+  const { productsAdded } = useSelector((store) => store.user)
 
   return (
     <>

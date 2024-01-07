@@ -2,12 +2,14 @@ import React, { useContext } from 'react'
 import { allProducts, womenProducts, electronicProducts } from './ProductData'
 import ProductCard from './ProductCard'
 import Banner from '../Banner/Banner'
-import { ProductContext } from '../../Store/ProductContext'
+import { useSelector } from 'react-redux'
+import Header from '../Header/Header'
 
 const Product = () => {
-  const { searchText } = useContext(ProductContext)
+  const { searchText } = useSelector((Store) => Store.user)
   return (
     <>
+      <Header />
       <div className='container'>
         <Banner />
         <h3 className='text-dark'>Top Rated Products</h3>

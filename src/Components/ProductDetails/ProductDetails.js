@@ -11,25 +11,29 @@ import { BagHeart, TagFill, PersonCircle, Apple } from 'react-bootstrap-icons'
 import './ProductDetails.css'
 import { ProductContext } from '../../Store/ProductContext'
 import { useContext } from 'react'
+import { useDispatch } from 'react-redux'
+import { setProductsAdded } from '../../ReduxStore/userSlice'
 
 const ProductDetails = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { productsAdded, setProductsAdded } = useContext(ProductContext) //productcontext la erunthu yethu use panromo athu left side then use contextla enga erunthu yeduthutu varamo athu podanum
+  const dispatch = useDispatch()
+  const { productsAdded } = useContext(ProductContext) //productcontext la erunthu yethu use panromo athu left side then use contextla enga erunthu yeduthutu varamo athu podanum
 
   const cartUpdate = (cartValue) => {
-    setProductsAdded((prev) => ({
-      ...prev,
-      [cartValue._id]: {
-        name: cartValue.title,
-        curetedprice: cartValue.cureted_price,
-        price: cartValue.price,
-        img: cartValue.images[0].url,
-        stock: cartValue.stock,
-        rating: cartValue.rating,
-        count: prev[cartValue._id]?.count ? prev[cartValue._id].count + 1 : 1,
-      },
-    }))
+    dispatch(setProductsAdded(cartValue))
+    // setProductsAdded((prev) => ({
+    //   ...prev,
+    //   [cartValue._id]: {
+    //     name: cartValue.title,
+    //     curetedprice: cartValue.cureted_price,
+    //     price: cartValue.price,
+    //     img: cartValue.images[0].url,
+    //     stock: cartValue.stock,
+    //     rating: cartValue.rating,
+    //     count: prev[cartValue._id]?.count ? prev[cartValue._id].count + 1 : 1,
+    //   },
+    // }))
   }
 
   const AddToCart = (cartValue) => {

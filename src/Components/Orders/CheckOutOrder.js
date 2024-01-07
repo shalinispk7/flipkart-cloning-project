@@ -8,14 +8,11 @@ import { useContext } from 'react'
 import { ProductContext } from '../../Store/ProductContext'
 import OrderSummary from '../OrderSummary/OrderSummary'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const CheckOutOrder = () => {
-  const { productsAdded, setProductsAdded } = useContext(ProductContext)
-  const [address, setAddress] = useState()
-  const [pincode, setPincode] = useState()
-  const [city, setCity] = useState()
-  const [state, setState] = useState()
-  const [country, setCountry] = useState()
+  const { productsAdded } = useSelector((store) => store.user)
+
   const navigate = useNavigate()
 
   const [totalAmount, setTotalAmount] = useState({

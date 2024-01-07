@@ -5,13 +5,15 @@ import flipkart from '../../Assets/img/Flipkart-sees-rural-shoppers-increase-onl
 
 const Login = () => {
   return (
-    <div className='d-flex justify-content-center '>
-      {/* <Header /> */}
-      <div className=''>
-        <img src={flipkart} alt='IMG' className='w-100' />
+    <>
+      <Header />
+      <div className='d-flex justify-content-center '>
+        <div className=''>
+          <img src={flipkart} alt='IMG' className='w-100' />
+        </div>
+        <LoginForm />
       </div>
-      <LoginForm />
-    </div>
+    </>
   )
 }
 

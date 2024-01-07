@@ -7,13 +7,16 @@ import {
 } from 'firebase/auth'
 import { auth } from '../../utils/firebase'
 import { useNavigate } from 'react-router'
-import { ProductContext } from '../../Store/ProductContext'
+
+import { useDispatch } from 'react-redux'
+import { setUserInfo } from '../../ReduxStore/userSlice'
 
 const LoginForm = () => {
   const [isSignedIn, setIsSignedIn] = useState(true)
   const [errMessage, setErrMessage] = useState(null)
   const navigate = useNavigate()
-  const { userInfo, setUserInfo } = useContext(ProductContext)
+
+  const dispatch = useDispatch()
 
   const email = useRef(null)
   const password = useRef(null)
@@ -43,8 +46,7 @@ const LoginForm = () => {
           })
             .then(() => {
               // Profile updated!
-              setUserInfo(user)
-              navigate('/product')
+              dispatch(setUserInfo(user))
             })
             .catch((error) => {
               // An error occurred
@@ -68,9 +70,6 @@ const LoginForm = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user
-          setUserInfo(user)
-
-          navigate('/product')
         })
         .catch((error) => {
           const errorCode = error.code

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
@@ -12,23 +12,25 @@ import {
   CaretDownFill,
   Search,
   Power,
-  ThreeDotsVertical,
-  GraphDownArrow,
 } from 'react-bootstrap-icons'
-import Dropdown from 'react-bootstrap/Dropdown'
+
 import { auth } from '../../utils/firebase'
-import { signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setUserInfo,
+  setSearchText,
+  setProductsAdded,
+  setRemoveUser,
+} from '../../ReduxStore/userSlice'
 
 const Header = () => {
-  const {
-    productsAdded,
-    setProductsAdded,
-    searchText,
-    setSearchText,
-    userInfo,
-    setUserInfo,
-  } = useContext(ProductContext)
+  const { productsAdded } = useSelector((store) => store.user)
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const { userInfo } = useSelector((store) => store.user)
+
   const [userInput, setUserInput] = useState('')
 
   const handleLogin = () => {
@@ -38,15 +40,31 @@ const Header = () => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        setUserInfo(null)
+        dispatch(setUserInfo(null))
         navigate('/')
-        setProductsAdded([])
+        dispatch(setProductsAdded([]))
         // Sign-out successful.
       })
       .catch((error) => {
         // An error happened.
       })
   }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // const { uid, email, displayName, photoURL } = user;
+        dispatch(setUserInfo(user))
+        navigate('/product')
+      } else {
+        dispatch(setRemoveUser())
+        navigate('/')
+      }
+    })
+
+    // Unsiubscribe when component unmounts
+    return () => unsubscribe()
+  }, [])
   return (
     <section className='bg-primary '>
       <div className='container'>
@@ -55,12 +73,9 @@ const Header = () => {
             <div className='row d-flex align-items-center '>
               <div className='col-lg-3'>
                 <NavLink to={'/'}>
-                  <a
-                    href='#'
-                    className='fs-5 text-white text-decoration-none fw-bold'
-                  >
+                  <span className='fs-5 text-white text-decoration-none fw-bold'>
                     Flipkart
-                  </a>
+                  </span>
                 </NavLink>
 
                 <h6 className='text-white fw-light fst-italic'>
@@ -72,7 +87,7 @@ const Header = () => {
                   <Search
                     className='pe-1 ps-1 fw-bold fs-3'
                     onClick={() => {
-                      setSearchText(userInput)
+                      dispatch(setSearchText(userInput))
                     }}
                   />
                   <input

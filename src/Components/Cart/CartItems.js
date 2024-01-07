@@ -1,14 +1,24 @@
 import React from 'react'
 import { useContext } from 'react'
 import { ProductContext } from '../../Store/ProductContext'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setCountDecrease,
+  setCountIncrease,
+  setProductsAdded,
+  setRemoveItem,
+} from '../../ReduxStore/userSlice'
 
 const CartItems = () => {
-  const { productsAdded, setProductsAdded } = useContext(ProductContext)
+  const { productsAdded } = useSelector((store) => store.user)
+
+  const dispatch = useDispatch()
+
   console.log(productsAdded)
   const removeItem = (keyToRemove) => {
-    const updatedobj = { ...productsAdded }
-    delete updatedobj[keyToRemove]
-    setProductsAdded(updatedobj)
+    // const updatedobj = { ...productsAdded }
+    // delete updatedobj[keyToRemove]
+    dispatch(setRemoveItem(keyToRemove))
   }
   return (
     <>
@@ -25,17 +35,18 @@ const CartItems = () => {
                     <img className='w-100' src={productsAdded[el].img} />
                     <div>
                       <button
-                        onClick={() =>
+                        onClick={
+                          () => dispatch(setCountDecrease(el))
                           // setProductsAdded(
                           //   (prev) => ...prev,prev.productsAdded[el].count - 1
                           // )
-                          setProductsAdded((prev) => ({
-                            ...prev,
-                            [el]: {
-                              ...prev[el],
-                              count: prev[el].count ? prev[el].count - 1 : 0,
-                            },
-                          }))
+                          // setProductsAdded((prev) => ({
+                          //   ...prev,
+                          //   [el]: {
+                          //     ...prev[el],
+                          //     count: prev[el].count ? prev[el].count - 1 : 0,
+                          //   },
+                          // }))
                         }
                         className='  p-1 px-4 border border-light rounded '
                         disabled={productsAdded[el].count <= 0}
@@ -56,15 +67,17 @@ const CartItems = () => {
                       <button
                         onClick={() => {
                           console.log(productsAdded)
-                          setProductsAdded((prev) => ({
-                            ...prev,
-                            [el]: {
-                              ...prev[el],
-                              count: prev[el].count
-                                ? prev[el].count + 1
-                                : prev[el].count + 1,
-                            },
-                          }))
+                          dispatch(setCountIncrease(el))
+                          // setProductsAdded((prev) => ({
+                          //   ...prev,
+                          //   [el]: {
+                          //     ...prev[el],
+                          //     count: prev[el].count
+                          //       ? prev[el].count + 1
+                          //       : prev[el].count + 1,
+
+                          //   },
+                          // }))
                         }}
                         className='p-1 px-4 border border-light rounded'
                         disabled={
