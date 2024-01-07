@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import cart from '../../Assets/svg/cart.svg'
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import './Header.css'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { ProductContext } from '../../Store/ProductContext'
 import {
   Person,
@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap-icons'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { auth } from '../../utils/firebase'
-import { signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 
 const Header = () => {
   const {
@@ -30,7 +30,10 @@ const Header = () => {
   } = useContext(ProductContext)
   const navigate = useNavigate()
   const [userInput, setUserInput] = useState('')
+  const location = useLocation()
+  const currentPath = location.pathname
 
+  console.log('currentPath', currentPath)
   const handleLogin = () => {
     navigate('/')
   }
@@ -47,6 +50,20 @@ const Header = () => {
         // An error happened.
       })
   }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate(currentPath)
+      } else {
+        navigate('/')
+      }
+    })
+
+    // Unsiubscribe when component unmounts
+    return () => unsubscribe()
+  }, [])
+
   return (
     <section className='bg-primary '>
       <div className='container'>
@@ -54,14 +71,25 @@ const Header = () => {
           <div className='col-lg-5'>
             <div className='row d-flex align-items-center '>
               <div className='col-lg-3'>
-                <NavLink to={'/'}>
-                  <a
-                    href='#'
-                    className='fs-5 text-white text-decoration-none fw-bold'
-                  >
-                    Flipkart
-                  </a>
-                </NavLink>
+                {userInfo ? (
+                  <NavLink to={'/product'}>
+                    <span
+                      href='#'
+                      className='fs-5 text-white text-decoration-none fw-bold'
+                    >
+                      Flipkart
+                    </span>
+                  </NavLink>
+                ) : (
+                  <NavLink to={'/'}>
+                    <span
+                      href='#'
+                      className='fs-5 text-white text-decoration-none fw-bold'
+                    >
+                      Flipkart
+                    </span>
+                  </NavLink>
+                )}
 
                 <h6 className='text-white fw-light fst-italic'>
                   Explore<span className='text-warning ps-1'>Plus</span>

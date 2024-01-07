@@ -83,13 +83,13 @@ const CheckOutOrder = () => {
             {/* heading ends */}
           </div>
           {/* address details starts*/}
-          <div p-5 py-2>
+          {/* <div p-5 py-2>
             <form>
               <h2 className='fs-5 fw-normal'>Add Address</h2>
-              {/* <div className='d-flex gap-3'>
+              <div className='d-flex gap-3'>
                 <textarea value={address} required fullWidth />
                 <textarea value={pincode} required fullWidth />
-              </div> */}
+              </div>
               <div className='d-flex gap-3'>
                 <div className='form-floating  w-100 '>
                   <input
@@ -110,7 +110,7 @@ const CheckOutOrder = () => {
                   <label for='floatingPassword'>Password</label>
                 </div>
               </div>
-              {/* <button
+              <button
                 type='submit'
                 style={{
                   backgroundColor: 'orange',
@@ -118,9 +118,9 @@ const CheckOutOrder = () => {
                 className=' px-3 border border-light rounded uppercase  fs-5 fw-normal py-2 text-light mt-3 '
               >
                 Deliver Here
-              </button> */}
+              </button>
             </form>
-          </div>
+          </div> */}
           {/* address details ends*/}
           {/* delivery ends */}
           {/* order summary */}
@@ -168,7 +168,7 @@ const CheckOutOrder = () => {
                   Products ({Object.keys(productsAdded).length})
                 </h2>
                 <h2 className='fs-6 fw-normal pb-2 text-dark'>
-                  Rs. {totalAmount.total}
+                  Rs. {totalAmount.total.toFixed(2)}
                 </h2>
               </li>
               <li className=' d-flex justify-content-between '>
@@ -191,7 +191,11 @@ const CheckOutOrder = () => {
               <h2 className='fs-5 fw-normal text-dark'>Total Amount</h2>
               <h2 className='fs-3'>
                 Rs.
-                {totalAmount.total + totalAmount.delivery + totalAmount.tax}
+                {(
+                  totalAmount.total +
+                  totalAmount.delivery +
+                  totalAmount.tax
+                ).toFixed(2)}
               </h2>
             </div>
             <div className='mt-3 '>

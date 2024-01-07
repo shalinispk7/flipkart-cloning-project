@@ -32,7 +32,7 @@ const ProductCard = (props) => {
                   {props.value.rating.toFixed(2)}
                 </span>
                 <svg
-                  class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                  className='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
                   focusable='false'
                   aria-hidden='true'
                   viewBox='0 0 24 24'

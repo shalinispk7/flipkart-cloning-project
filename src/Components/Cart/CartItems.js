@@ -20,10 +20,10 @@ const CartItems = () => {
                 {/* left */}
                 {console.log(el)}
 
-                <div className='col-lg-4 d-flex justify-content-center'>
+                <div className='col-lg-4'>
                   <div className='d-flex flex-column' style={{ width: '45%' }}>
                     <img className='w-100' src={productsAdded[el].img} />
-                    <div>
+                    <div className=' d-flex justify-content-center'>
                       <button
                         onClick={() =>
                           // setProductsAdded(
@@ -37,7 +37,7 @@ const CartItems = () => {
                             },
                           }))
                         }
-                        className='  p-1 px-4 border border-light rounded '
+                        className='  p-1 px-2 border border-light rounded '
                         disabled={productsAdded[el].count <= 0}
                       >
                         -
@@ -66,7 +66,7 @@ const CartItems = () => {
                             },
                           }))
                         }}
-                        className='p-1 px-4 border border-light rounded'
+                        className='p-1 px-2 border border-light rounded'
                         disabled={
                           productsAdded[el].count >= productsAdded[el].stock
                         }
@@ -79,7 +79,7 @@ const CartItems = () => {
                 {/* right details */}
                 <div className='col-lg-8'>
                   <div className='row d-flex justify-content-around align-items-center'>
-                    <div className='col-lg-10'>
+                    <div className='col-lg-9'>
                       <div className='d-flex flex-column gap-2'>
                         <h2 className='fw-normal fs-5 '>
                           {productsAdded[el].name}
@@ -96,7 +96,7 @@ const CartItems = () => {
                               {productsAdded[el].rating.toFixed(2)}
                             </span>
                             <svg
-                              class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                              className='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
                               focusable='false'
                               aria-hidden='true'
                               viewBox='0 0 24 24'
@@ -127,7 +127,7 @@ const CartItems = () => {
                         </h2>
                       </div>
                     </div>
-                    <div className='col-lg-2'>
+                    <div className='col-lg-3'>
                       <div>
                         <button
                           onClick={() => removeItem(el)}

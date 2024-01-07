@@ -51,7 +51,7 @@ const ProductDetails = () => {
                 <div className='row mt-3'>
                   {/* LEFT SIDE STARTS*/}
                   <div className='col-lg-4 '>
-                    <div className='card '>
+                    <div className='card d-flex align-items-center'>
                       <div className='w-50'>
                         <img
                           src={e.images[0].url}
@@ -59,22 +59,22 @@ const ProductDetails = () => {
                           className='w-100 '
                         />
                       </div>
-                      <div className='d-flex align-items-center gap-4 justify-content-between mt-4'>
-                        <button
-                          className='w-100 buybtn'
-                          onClick={() => AddToCart(e)}
-                        >
-                          {/* <img src={cart} className='pe-2' /> */}
-                          ADD TO CART
-                        </button>
-                        <button
-                          className='w-100 buybtn buy'
-                          onClick={() => BuyNow(e)}
-                        >
-                          <BagHeart className='pe-2 fs-4' />
-                          BUY NOW
-                        </button>
-                      </div>
+                    </div>
+                    <div className='d-flex align-items-center gap-4 justify-content-between mt-4'>
+                      <button
+                        className='w-100 buybtn'
+                        onClick={() => AddToCart(e)}
+                      >
+                        {/* <img src={cart} className='pe-2' /> */}
+                        ADD TO CART
+                      </button>
+                      <button
+                        className='w-100 buybtn buy'
+                        onClick={() => BuyNow(e)}
+                      >
+                        <BagHeart className='pe-2 fs-4' />
+                        BUY NOW
+                      </button>
                     </div>
                   </div>
                   {/* LEFT SIDE ENDS*/}
@@ -97,7 +97,7 @@ const ProductDetails = () => {
                               {e.rating.toFixed(2)}
                             </span>
                             <svg
-                              class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                              className='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
                               focusable='false'
                               aria-hidden='true'
                               viewBox='0 0 24 24'
@@ -202,7 +202,7 @@ const ProductDetails = () => {
                                       {elemVal.rate.toFixed(2)}
                                     </span>
                                     <svg
-                                      class='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
+                                      className='MuiSvgIcon-root MuiSvgIcon-fontSize24px css-jpbqk9 rating'
                                       focusable='false'
                                       aria-hidden='true'
                                       viewBox='0 0 24 24'

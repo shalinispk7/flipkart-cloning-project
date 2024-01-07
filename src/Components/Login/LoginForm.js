@@ -112,7 +112,7 @@ const LoginForm = () => {
         className='w-50 p-3 my-2 rounded buy border-0 '
         onClick={handleButtonClick}
       >
-        {isSignedIn ? 'Login In' : 'Sign Up'}
+        {isSignedIn ? 'Login' : 'Sign Up'}
       </button>
       <p className='user-select-none' onClick={toggleSignIn}>
         {isSignedIn
